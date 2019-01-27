@@ -15,7 +15,7 @@ game.initialize().then(async () => {
 
    const { gameMap, me } = game;
 
-   //NORMAL MOVECODE PLEASE, WITHOUT AWAYRANDOMIZER!!!   
+
    var avgHalite = 0;
    var totalHalite = 0;
    function findAvgHalite() {
@@ -458,8 +458,7 @@ game.initialize().then(async () => {
       logging.info(attackerID + " => " + attackerTargetID);
 
 
-      // STAGE ONE: Initialization ----------------------------------------------------------------------------------------------------------
-      for (const ship of me.getShips()) {
+      // STAGE ONE
          if ( !(shipIds.includes(ship.id)) ) {
             shipIds.push(ship.id);
          }
@@ -517,8 +516,7 @@ game.initialize().then(async () => {
       }
       logging.info(shipStates.includes("follower"));
 
-      // STAGE TWO: Navigation --------------------------------------------------------------------------------------------------------------
-
+      // STAGE TWO
       for (let i=0; i<10; i++) {
          for (const ship of me.getShips()) {
             const myDestination = shipDestinations[shipIds.indexOf(ship.id)];
@@ -526,7 +524,7 @@ game.initialize().then(async () => {
          }
       }
 
-      // STAGE THREE: Movemement ------------------------------------------------------------------------------------------------------------
+      // STAGE THREE
       for (const ship of me.getShips()) {
          const myDestination = shipDestinations[shipIds.indexOf(ship.id)];
          let nearDropoff = false;
@@ -552,7 +550,7 @@ game.initialize().then(async () => {
          }
       }
 
-      // STAGE FOUR: Finalization -----------------------------------------------------------------------------------------------------------
+      // STAGE FOUR
       if ( (game.turnNumber < dropoffQueue.indexOf(dropoffsRequired) 
       || (me.getDropoffs().length >= dropoffsRequired || dropoffQueue.length === 0 || me.haliteAmount >= DROPOFF_COST + SHIP_COST)
       )
