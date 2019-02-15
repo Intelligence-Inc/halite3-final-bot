@@ -4,9 +4,6 @@ const logging = require('./hlt/logging');
 
 const game = new hlt.Game();
 game.initialize().then(async () => {
-   // At this point "game" variable is populated with initial map data.
-   // This is a good place to do computationally expensive start-up pre-processing.
-   // As soon as you call "ready" function below, the 2 second per turn timer will start.
 
    const MAX_HALITE = hlt.constants.MAX_HALITE;
    const MAX_TURNS = hlt.constants.MAX_TURNS;
@@ -90,13 +87,8 @@ game.initialize().then(async () => {
    var shipRands = [];
    var shipDestinations = [];
    
-   
    var dropoffMade = 10000;
-
-   
-
    var dropoffMakerIsClosest = false;
-
 
    var dropoffLocation = new Position(0,0);
    var dropoffId = -1;
